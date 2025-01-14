@@ -1,11 +1,17 @@
-import { isString } from 'util';
+import { IsString, IsEmail, IsPhoneNumber } from 'class-validator';
 
 export class UserDataDto {
-  @isString()
-  id: number;
+  @IsString()
   firstname: string;
+
+  @IsString()
   lastname: string;
+
+  @IsEmail()
   email: string;
-  password: string;
-  phonenumber: string;
+
+  @IsPhoneNumber('TZ', {
+    message: 'Please provide a valid Tanzanian phone number',
+  })
+  phone: number;
 }

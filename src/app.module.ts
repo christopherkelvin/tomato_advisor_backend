@@ -17,7 +17,7 @@ import { join } from 'path';
       username: 'root',
       password: '',
       database: 'tomato_advisor',
-      entities: [],
+      entities: [join(process.cwd(), 'dist/**/*.entity.js')],
       synchronize: true,
     }),
   ],
