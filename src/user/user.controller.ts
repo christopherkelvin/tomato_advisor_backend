@@ -6,4 +6,5 @@ export class UserController {
   public getUser(@Param() getUserParamDto: GetUserParamDto) {
     console.log(getUserParamDto);
   }
+  public createUser(@Body() userData:) {}
 }
