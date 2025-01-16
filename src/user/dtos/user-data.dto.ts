@@ -1,17 +1,19 @@
-import { IsString, IsEmail, IsPhoneNumber } from 'class-validator';
+import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
 
 export class UserDataDto {
+  @IsNotEmpty()
   @IsString()
   firstname: string;
 
+  @IsNotEmpty()
   @IsString()
   lastname: string;
 
+  @IsNotEmpty()
   @IsEmail()
   email: string;
 
-  @IsPhoneNumber('TZ', {
-    message: 'Please provide a valid Tanzanian phone number',
-  })
+  @IsNotEmpty()
+  @IsString()
   phone: number;
 }

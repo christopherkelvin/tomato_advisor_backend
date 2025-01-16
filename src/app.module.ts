@@ -5,6 +5,7 @@ import { UserModule } from './user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -18,8 +19,9 @@ import { join } from 'path';
       password: '',
       database: 'tomato_advisor',
       entities: [join(process.cwd(), 'dist/**/*.entity.js')],
-      synchronize: true,
+      // synchronize: true,
     }),
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
