@@ -17,8 +17,8 @@ export class UserEntity {
   @Column()
   password: string;
 
-  @Column()
-  phonenumber: number;
+  @Column({ unique: true })
+  phonenumber: string;
 
   @Column({ default: true })
   isActive: boolean;

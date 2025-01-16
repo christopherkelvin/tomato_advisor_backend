@@ -1,19 +1,32 @@
-import { IsString, IsEmail, IsNotEmpty } from 'class-validator';
+import {
+  IsString,
+  IsEmail,
+  IsNotEmpty,
+  IsPhoneNumber,
+  MinLength,
+} from 'class-validator';
 
 export class UserDataDto {
-  @IsNotEmpty()
+  @MinLength(3)
   @IsString()
+  @IsNotEmpty()
   firstname: string;
 
-  @IsNotEmpty()
+  @MinLength(3)
   @IsString()
+  @IsNotEmpty()
   lastname: string;
 
-  @IsNotEmpty()
   @IsEmail()
+  @IsNotEmpty()
   email: string;
 
+  @IsPhoneNumber('TZ')
   @IsNotEmpty()
+  phonenumber: string;
+
+  @MinLength(6)
   @IsString()
-  phone: number;
+  @IsNotEmpty()
+  password: string;
 }

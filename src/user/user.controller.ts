@@ -5,7 +5,7 @@ import { UserService } from './provider/user.service';
 @Controller('user')
 export class UserController {
   constructor(private readonly userService: UserService) {}
-  @Get('/:id?')
+  @Get('/:id')
   public getUser(@Param() getUserParamDto: GetUserParamDto) {
     return this.userService.getUser(getUserParamDto);
   }
