@@ -27,13 +27,14 @@ export class UserService {
     }
   }
   async getUser(userId: GetUserParamDto) {
-    const Id = await this.userRepository.find({
+    const user = await this.userRepository.find({
       where: userId,
+      select: ['id', 'firstname', 'lastname', 'phonenumber', 'email'],
     });
-    if (!Id) {
+    if (!user) {
       throw new ConflictException('User not found');
     }
-    return Id;
+    return user;
   }
   async getByName(email: string) {
     return await this.userRepository.findOne({ where: { email } });
