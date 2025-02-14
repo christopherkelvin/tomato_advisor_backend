@@ -5,19 +5,40 @@ export class UserEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
+  @Column({
+    nullable: false,
+    type: 'varchar',
+    unique: true,
+    length: 255,
+  })
   firstname: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+    type: 'varchar',
+    unique: true,
+    length: 255,
+  })
   lastname: string;
 
-  @Column({ unique: true })
+  @Column({
+    nullable: false,
+    type: 'varchar',
+    unique: true,
+  })
   email: string;
 
-  @Column()
+  @Column({
+    nullable: false,
+    type: 'varchar',
+    length: 6,
+  })
   password: string;
 
-  @Column({ unique: true })
+  @Column({
+    nullable: false,
+    unique: true,
+  })
   phonenumber: string;
 
   @Column({ default: true })

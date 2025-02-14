@@ -5,6 +5,7 @@ import {
   IsNotEmpty,
   IsPhoneNumber,
   MinLength,
+  MaxLength,
 } from 'class-validator';
 
 export class UserDataDto {
@@ -44,6 +45,7 @@ export class UserDataDto {
     example: 'password123',
   })
   @MinLength(6)
+  @MaxLength(6)
   @IsString()
   @IsNotEmpty()
   password: string;
