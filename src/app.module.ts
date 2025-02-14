@@ -1,12 +1,12 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
+import { UserModule } from './modules/user/user.module';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
-import { AuthModule } from './auth/auth.module';
-import { DiseaseModule } from './disease/disease.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { DiseaseModule } from './modules/disease/disease.module';
 
 @Module({
   imports: [
