@@ -2,6 +2,8 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as express from 'express';
+import { join } from 'path';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
@@ -32,7 +34,12 @@ async function bootstrap() {
   // Instantiate Swagger
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-
+  app.use(
+    '/disease/static',
+    express.static(
+      join(__dirname, '..', 'src', 'modules', 'disease', 'static'),
+    ),
+  );
   await app.listen(process.env.DB_PORT);
 }
 bootstrap();

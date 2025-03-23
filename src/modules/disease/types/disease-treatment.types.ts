@@ -7,6 +7,7 @@ export interface Pesticide {
 export interface DiseaseTreatment {
   id: number;
   name: string;
+  url?: string;
   recommended_pesticides?: Pesticide[];
   recommended_treatment?: string;
   dosage?: string;

@@ -1,8 +1,12 @@
 import { DiseaseTreatment } from './types/disease-treatment.types';
+
+const imagePath = 'http://localhost:4000/disease/static/';
+
 export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 1,
     name: 'Early Blight',
+    url: `${imagePath}Early Blight.jpg`,
     recommended_pesticides: [
       {
         name: 'Chlorothalonil',
@@ -20,6 +24,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 2,
     name: 'Late Blight',
+    url: `${imagePath}Late Blight.jpg`,
     recommended_pesticides: [
       {
         name: 'Metalaxyl',
@@ -37,6 +42,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 3,
     name: 'Bacterial Spot',
+    url: `${imagePath}Bacterial Spot.jpg`,
     recommended_pesticides: [
       {
         name: 'Copper oxychloride',
@@ -54,6 +60,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 4,
     name: 'Septoria Leaf Spot',
+    url: `${imagePath}Septoria Leaf Spot.jpg`,
     recommended_pesticides: [
       {
         name: 'Chlorothalonil',
@@ -71,6 +78,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 5,
     name: 'Tomato Yellow Leaf Curl Virus (TYLCV)',
+    url: `${imagePath}Tomato Yellow Leaf Curl Virus.jpg`,
     recommended_pesticides: [
       {
         name: 'Imidacloprid',
@@ -89,6 +97,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 6,
     name: 'Leaf Mold',
+    url: `${imagePath}Leaf Mold.jpg`,
     recommended_pesticides: [
       {
         name: 'Copper hydroxide',
@@ -106,6 +115,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 7,
     name: 'Tomato Mosaic Virus',
+    url: `${imagePath}Tomato Mosaic Virus.jpg`,
     recommended_treatment:
       'No chemical control available. Manage aphids (vectors) and use virus-free seeds.',
     dosage: 'No amount of dosage required',
@@ -114,6 +124,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 8,
     name: 'Spider Mites (Two-Spotted Spider Mite)',
+    url: `${imagePath}Spider Mites (Two-Spotted Spider Mite).jpg`,
     recommended_pesticides: [
       {
         name: 'Abamectin',
@@ -131,6 +142,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 9,
     name: 'Target Spot',
+    url: `${imagePath}Target Spot.jpg`,
     recommended_pesticides: [
       {
         name: 'Chlorothalonil',
@@ -153,6 +165,7 @@ export const diseaseTreaments: DiseaseTreatment[] = [
   {
     id: 10,
     name: 'Healthy',
+    url: `${imagePath}Healthy.jpg`,
     recommended_treatment:
       'No pesticide application is required. Focus on proper nutrition and preventive measures to maintain health.',
   },
