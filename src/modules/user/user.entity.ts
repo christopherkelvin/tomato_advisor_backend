@@ -41,6 +41,6 @@ export class UserEntity {
   })
   phonenumber: string;
 
-  @Column({ default: true })
+  @Column({ default: true, nullable: true })
   isActive: boolean;
 }

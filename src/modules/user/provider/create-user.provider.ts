@@ -24,7 +24,7 @@ export class CreateUserProvider {
   async createUser(userData: UserDataDto): Promise<UserEntity> {
     try {
       const newUser = this.userRepository.create({
-        ...UserDataDto,
+        ...userData,
         password: await this.hashingProvider.hashPassword(userData.password),
       });
       return await this.userRepository.save(newUser);
