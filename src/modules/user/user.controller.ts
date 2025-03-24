@@ -3,7 +3,6 @@ import { GetUserParamDto } from './dtos/get-user-params.dto';
 import { UserDataDto } from './dtos/user-data.dto';
 import { UserService } from './provider/user.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { UserEntity } from './user.entity';
 @Controller('user')
 @ApiTags('User')
 export class UserController {

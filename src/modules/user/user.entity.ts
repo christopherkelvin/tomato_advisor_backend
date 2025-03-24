@@ -31,7 +31,6 @@ export class UserEntity {
   @Column({
     nullable: false,
     type: 'varchar',
-    length: 6,
   })
   password: string;
 
