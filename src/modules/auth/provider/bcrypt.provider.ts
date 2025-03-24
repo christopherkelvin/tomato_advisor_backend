@@ -3,10 +3,13 @@ import { HashingProvider } from './hashing.provider';
 import * as bycrypt from 'bcrypt';
 @Injectable()
 export class BcryptProvider implements HashingProvider {
-  hashPassword(data: string | Buffer): Promise<string> {
-    throw new Error('Method not implemented.');
+  public async hashPassword(data: string | Buffer): Promise<string> {
+    //Generate Salt
+    const salt = await bycrypt.genSalt();
+    //Hash Password
+    return bycrypt.hash(data, salt);
   }
   comparePasswords(data: string | Buffer, encrypted: string): Promise<boolean> {
-    throw new Error('Method not implemented.');
+    return bycrypt.compare(data, encrypted);
   }
 }

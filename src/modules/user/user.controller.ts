@@ -3,10 +3,15 @@ import { GetUserParamDto } from './dtos/get-user-params.dto';
 import { UserDataDto } from './dtos/user-data.dto';
 import { UserService } from './provider/user.service';
 import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { CreateUserProvider } from './provider/create-user.provider';
 @Controller('user')
 @ApiTags('User')
 export class UserController {
-  constructor(private readonly userService: UserService) {}
+  constructor(
+    private readonly userService: UserService,
+    private readonly createUserProvider: CreateUserProvider,
+  ) {}
+
   @ApiOperation({ summary: 'Get user information by id' })
   @ApiResponse({
     status: 200,
@@ -24,6 +29,6 @@ export class UserController {
   })
   @Post()
   public createUser(@Body() userData: UserDataDto) {
-    return this.userService.createUser(userData);
+    return this.createUserProvider.createUser(userData);
   }
 }
