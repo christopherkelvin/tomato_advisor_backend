@@ -15,7 +15,7 @@ export class FindOneUserByEmailProvider {
     private readonly userRepository: Repository<UserEntity>,
   ) {}
   public async findOneUserByEmail(email: string) {
-    const user: UserEntity | undefined = undefined;
+    let user: UserEntity | undefined = undefined;
     try {
       user = await this.userRepository.findOneBy({
         email: email,
