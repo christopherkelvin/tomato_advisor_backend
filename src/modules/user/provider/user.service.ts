@@ -6,6 +6,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { GetUserParamDto } from '../dtos/get-user-params.dto';
 import { CreateUserProvider } from './create-user.provider';
 import { UserDataDto } from '../dtos/user-data.dto';
+import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
 
 @Injectable()
 export class UserService {
@@ -13,6 +14,7 @@ export class UserService {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
     private readonly createUserProvider: CreateUserProvider,
+    private readonly findOneByEmailProvider: FindOneUserByEmailProvider,
   ) {}
 
   async createUser(userData: UserDataDto) {
@@ -30,5 +32,8 @@ export class UserService {
   }
   async getByName(email: string) {
     return await this.userRepository.findOne({ where: { email } });
+  }
+  public async findOneUserByEmail(email: string) {
+    return await this.findOneByEmailProvider.findOneUserByEmail(email);
   }
 }

@@ -5,7 +5,6 @@ import { UserEntity } from './user.entity';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from '../auth/auth.module';
 import { CreateUserProvider } from './provider/create-user.provider';
-import { FindOneUserByEmailProvider } from './provider/find-one-user-by-email.provider/find-one-user-by-email.provider';
 import { FindOneUserByEmailProvider } from './provider/find-one-user-by-email.provider';
 @Module({
   imports: [
