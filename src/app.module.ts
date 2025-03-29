@@ -8,6 +8,7 @@ import { join } from 'path';
 import { AuthModule } from './modules/auth/auth.module';
 import { DiseaseModule } from './modules/disease/disease.module';
 import { ModelModule } from './modules/model/model.module';
+import { ImageModule } from './modules/image/image.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { ModelModule } from './modules/model/model.module';
     AuthModule,
     DiseaseModule,
     ModelModule,
+    ImageModule,
   ],
   controllers: [AppController],
   providers: [AppService],

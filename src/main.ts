@@ -40,6 +40,12 @@ async function bootstrap() {
       join(__dirname, '..', 'src', 'modules', 'disease', 'static'),
     ),
   );
+  app.use(
+    '/images/uploaded',
+    express.static(
+      join(__dirname, '..', 'src', 'modules', 'model', 'uploaded'),
+    ),
+  );
   await app.listen(process.env.DB_PORT);
 }
 bootstrap();
