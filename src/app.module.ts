@@ -7,8 +7,8 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { join } from 'path';
 import { AuthModule } from './modules/auth/auth.module';
 import { DiseaseModule } from './modules/disease/disease.module';
-import { ModelModule } from './modules/model/model.module';
-import { ImageModule } from './modules/image/image.module';
+import { PredictModule } from './modules/predict/predict.module';
+import { ServeStaticModule } from '@nestjs/serve-static';
 
 @Module({
   imports: [
@@ -28,8 +28,11 @@ import { ImageModule } from './modules/image/image.module';
     }),
     AuthModule,
     DiseaseModule,
-    ModelModule,
-    ImageModule,
+    PredictModule,
+    ServeStaticModule.forRoot({
+      rootPath: join(process.cwd(), 'tfjs_model'), // Path to the directory containing model.json
+      serveRoot: '/model', // URL prefix for accessing the files
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
