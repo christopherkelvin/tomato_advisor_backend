@@ -12,9 +12,9 @@ export class PredictController {
     //Injecting Image resize service
     private readonly predictService: PredictService,
   ) {}
-  @Post()
+  @Post('analyze')
   @UseInterceptors(FileInterceptor('image'))
   async predict(@UploadedFile() image: Express.Multer.File) {
-    return this.predictService.predict(image);
+    return this.predictService.sendToFlask(image.buffer);
   }
 }

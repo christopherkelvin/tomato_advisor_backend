@@ -1,19 +1,26 @@
 import { Injectable } from '@nestjs/common';
+import axios from 'axios';
+import * as FormData from 'form-data';
 
 @Injectable()
 export class PredictService {
-  async predict(image: Express.Multer.File) {
-    if (image) {
-      const imagePath = image.path;
-      // Perform prediction logic here
-      // For example, you can use a machine learning model to make predictions based on the image
-      // Return the prediction result
-      return {
-        message: 'Prediction successful',
-        imagePath: imagePath,
-        // Add more prediction results as needed
-      };
-    }
-   }
+  async sendToFlask(imageBuffer: Buffer): Promise<any> {
+    const formData = new FormData();
+    formData.append('image', imageBuffer, {
+      filename: Date.now().toString(),
+      contentType: 'image/jpeg',
+    });
+    const response = await axios.post(
+      'http://127.0.0.1:2000/predict',
+      formData,
+      {
+        headers: formData.getHeaders(),
+      },
+    );
+    return response.data;
+  }
+  catch(error: unknown) {
+    console.error(error);
+    throw new Error('Error contacting Flask server');
   }
 }
