@@ -12,6 +12,7 @@ export class AuthService {
     private readonly logInProvider: LogInProvider,
   ) {}
   async loginUser(loginData: GetUserLoginDataDto) {
+    console.log(loginData);
     const user = await this.userService.getByName(loginData.email);
     if (!user) {
       throw new UnauthorizedException('Invalid credentials');

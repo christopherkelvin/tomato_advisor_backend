@@ -9,6 +9,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { DiseaseModule } from './modules/disease/disease.module';
 import { PredictModule } from './modules/predict/predict.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { HistoryModule } from './modules/history/history.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { ServeStaticModule } from '@nestjs/serve-static';
       rootPath: join(process.cwd(), 'tfjs_model'), // Path to the directory containing model.json
       serveRoot: '/model', // URL prefix for accessing the files
     }),
+    HistoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],
