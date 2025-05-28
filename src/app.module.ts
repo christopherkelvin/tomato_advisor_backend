@@ -19,11 +19,11 @@ import { HistoryModule } from './modules/history/history.module';
     TypeOrmModule.forRootAsync({
       useFactory: () => ({
         type: 'mysql',
-        host: 'localhost',
+        host: process.env.DB_HOSTNAME,
         port: 3306,
-        username: 'root',
-        password: '',
-        database: 'tomato_advisor',
+        username: process.env.DB_USERNAME,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
         entities: [join(process.cwd(), 'dist/**/*.entity.js')],
         // synchronize: true,
       }),
