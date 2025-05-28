@@ -11,6 +11,7 @@ import { PredictModule } from './modules/predict/predict.module';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { HistoryModule } from './modules/history/history.module';
 
+
 @Module({
   imports: [
     UserModule,
@@ -31,8 +32,8 @@ import { HistoryModule } from './modules/history/history.module';
     DiseaseModule,
     PredictModule,
     ServeStaticModule.forRoot({
-      rootPath: join(process.cwd(), 'tfjs_model'), // Path to the directory containing model.json
-      serveRoot: '/model', // URL prefix for accessing the files
+      rootPath: join(process.cwd(), 'tfjs_model'),
+      serveRoot: '/model',
     }),
     HistoryModule,
   ],
