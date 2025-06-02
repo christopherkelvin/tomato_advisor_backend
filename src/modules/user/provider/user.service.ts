@@ -20,6 +20,7 @@ export class UserService {
   async createUser(userData: UserDataDto) {
     return this.createUserProvider.createUser(userData);
   }
+  
   async getUser(userId: GetUserParamDto) {
     const user = await this.userRepository.find({
       where: userId,
@@ -28,6 +29,7 @@ export class UserService {
     if (!user) {
       throw new ConflictException('User not found');
     }
+    console.log(user);
     return user;
   }
   async getByName(email: string) {
